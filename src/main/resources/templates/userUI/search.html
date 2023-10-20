@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+<title>TÌM KIẾM</title>
+<link rel="stylesheet" href="/assets/css/index.css">
+<style type="">
+	h5{
+		margin: 20px 50px;
+		font-weight: bold;
+	}
+	
+	.bot{
+		margin: 20px 50px;
+	}
+</style>
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<h5>
+			Đã tìm thấy <span th:text="${countResult}"></span> sản phẩm
+		</h5>
+		<div class="row box-products w-100">
+			<div class="box-product col-3 card" th:each="item : ${products}">
+				<img
+					th:src="${item.img!=null? '/uploads/img/'+item.img : '/img/sp1.png '}"
+					alt="" class="product-img"> <a
+					class="product-name hover-none"
+					th:href="@{'/detailProduct/'+${item.productId}}"
+					th:text="${item.name}">Tên sp</a>
+				<p class="product-price" th:text="${item.price +' VNĐ'}">1000k</p>
+				<p class="prepay">
+					Trả góp trả trước: <span th:text="${item.price*10/100 +' VNĐ'}"></span>
+				</p>
+				<div class="product-hardware">
+					<p>
+						<span class="chip">Chip</span>/ <span class="display">Màn
+							hình</span>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="bot"></div>	
+	</section>
+</body>
+</html>

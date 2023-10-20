@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+    <title>ĐỔI MẬT KHẨU</title>
+<link rel="stylesheet" href="/assets/css/sharedForm.css">
+</head>
+
+<body>
+<section layout:fragment="content">
+  <div class="container">
+    <div class="c-box card">
+      <form class="c-box-1 form-group" th:object="${account}"
+      action="/accounts/pChangePassword" method="post">
+
+        <h5 class="c-hello">Đổi mật khẩu</h5>
+
+        <input type="text" class="c-text form-control" 
+        th:field="*{username}" placeholder="Username" th:disabled="${disableInput}"/>
+        <input type="hidden" class="c-text form-control" 
+        name="username" th:field="*{username}"/>
+        <input class="c-text form-control" placeholder="Current Password" 
+        type="password" name="password" th:field="*{password}"/>
+        <input name="newPassword" type="password" class="c-text c-text-name form-control" placeholder="New Password" />
+        <input name="confirmPassword"  type="password" class="c-text form-control" placeholder="Confirm Password" />
+        <br>
+        <button class="btn-change-pass btn btn-danger">Xác nhận</button>
+        
+      </form>
+    </div>
+  </div>
+</section>
+</body>
+
+</html>

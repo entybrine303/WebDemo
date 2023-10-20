@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+    <title>ĐĂNG KÍ</title>
+<link rel="stylesheet" href="/assets/css/sharedForm.css">
+</head>
+
+<body>
+<section layout:fragment="content">
+  <div class="container">
+    <div class="c-box card">
+      <form class="c-box-1 form-group"  
+      th:object="${account}" action="/accounts/pRegister" method="post">
+
+        <h5 class="c-hello">Đăng kí miễn phí</h5>
+
+        <input type="text" class="c-text form-control" 
+        name="username" th:field="*{username}" placeholder="Tên đăng nhập" />
+        <input class="c-text form-control" placeholder="Mật khẩu" 
+        type="password" name="password" th:field="*{password}"/>
+        <input name="confirmPassword"  type="password" 
+        class="c-text form-control" placeholder="Xác nhận mật khẩu" th:field="*{confirmPassword}"/>
+
+        <button class="btn-register btn btn-danger">Đăng kí</button>
+        <p>Nếu bạn đã có tài khoản? <a th:href="@{/accounts/login}">Đăng nhập ngay</a></p>
+
+      </form>
+    </div>
+  </div>
+</section>
+</body>
+
+</html>

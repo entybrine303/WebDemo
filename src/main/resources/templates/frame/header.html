@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head></head>
+
+<body>
+	<div th:fragment="header">
+		<header class="header">
+			<div class="box-header row">
+				<div class="box-logo-header col-sm-3">
+					<a th:href="@{/msm.com}"> <img src="/assets/img/logo.webp"
+						alt="Logo">
+					</a>
+
+				</div>
+
+				<div class="box-search-header col-sm-4">
+					<form action="/admin/products/search" method="post">
+						<div class="input-group">
+							<input style="font-size: 14px;" name="nameSearch" type="text" class="form-control t" placeholder="Nhập tên một sản phẩm..."
+								>
+
+							<div class="input-group-append">
+								<button class="btn btn-warning"><i class="ti-search"></i></button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+				<ul class="box-info-header col-sm-5 row">
+					<li><i class="icon-header fa-solid fa-phone"></i><a href="#"
+						class="hotline">Hotline: 0225.652.67 </a></li>
+					<li><i class="icon-header fa-solid fa-location-dot"></i><a
+						href="#" class="locate">Địa chỉ </a></li>
+					<!-- <li><i class="icon-header fa-solid fa-user"></i><a th:href="@{/account/login}" class="account" th:text="${username_a}">Tài khoản</a></li> -->
+					<li class="nav-item dropdown "><i
+						class="icon-header fa-solid fa-user"></i><a
+						class="nav-link dropdown-toggle account" th:text="${username_a}"
+						href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> Tài khoản </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<div th:if="${username==null or username==''}">
+								<a class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/accounts/login}">Đăng nhập</a> <a
+									class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/accounts/register}">Đăng kí</a> <a
+									class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/accounts/forgotPassword}">Quên mật khẩu</a>
+							</div>
+							<div th:if="${isAdmin}">
+								<a class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/admin/products/view}">Quản lý sản phẩm</a> <a
+									class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/admin/accounts/view}">Quản lý người dùng</a>
+							<div class="dropdown-divider"></div></div>
+							<div th:if="${username!=null}">
+								<a class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/account/login}">Tài khoản của tôi</a> <a class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/accounts/changePassword}">Đổi mật khẩu</a> <a
+									class="dropdown-item list-sub-nav hover-none"
+									th:href="@{/accounts/logout}">Đăng xuất</a>
+							</div>
+						</div></li>
+					<button class="btn-cart">
+						<i class="icon-header ti-shopping-cart"></i>
+					</button>
+
+				</ul>
+			</div>
+
+		</header>
+	</div>
+</body>
+</html>

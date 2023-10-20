@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+<title>QUẢN LÝ SẢN PHẨM</title>
+<link rel="stylesheet" href="/assets/css/management-product.css">
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<div class="body">
+			<div class="container box-main">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item"><a class="nav-link active" id="home-tab"
+						data-toggle="tab" href="#management-product" role="tab"
+						aria-controls="management-product" aria-selected="true">Management
+							Product</a></li>
+					<li class="nav-item"><a class="nav-link" id="profile-tab"
+						data-toggle="tab" href="#list-product" role="tab"
+						aria-controls="list-product" aria-selected="false">List
+							Product</a></li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+
+					<div class="tab-pane fade show active" id="management-product"
+						role="tabpanel" aria-labelledby="home-tab">
+						<form action="/admin/products/saveOrUpdate" method="post"
+							class="card container form-management"
+							enctype="multipart/form-data" th:object="${product}">
+							<div class="row">
+								<div class="box-l col-sm-7">
+
+										<label for="">Product Id <input type="text" 
+										class="form-control" name="productId" th:field="*{productId}"></label>
+									<label for="">Product Name <input type="text"
+										class="form-control" name="name" th:field="*{name}">
+									</label> <br> <label for="">Quantity <input type="number"
+										class="form-control" name="quantity" th:field="*{quantity}"></label>
+									<br> <label for="">Price <input type="number"
+										class="form-control" name="price" th:field="*{price}"></label>
+									<br> <label for="">Facture <select name="facture"
+										th:field="*{facture}">
+											<option value="iPhone">iPhone</option>
+											<option value="Samsung">Samsung</option>
+											<option value="Xiaomi">Xiaomi</option>
+											<option value="Oppo">Oppo</option>
+											<option value="OnePlus">Oneplus</option>
+											<option value="Realme">Realme</option>
+											<option value="Google Pixel">Goole Pixel</option>
+									</select>
+									</label><br> <label for="">Description <br> <textarea
+											id="" cols="30" rows="10" name="description"
+											th:field="*{description}"></textarea>
+									</label>
+								</div>
+
+								<div class="box-r col-sm-5">
+									<script>
+										function chooseFile(fileInput) {
+											if (fileInput.files
+													&& fileInput.files[0]) {
+												var reader = new FileReader();
+												reader.onload = function(e) {
+													$('#img-product').attr(
+															'src',
+															e.target.result);
+												}
+
+												reader
+														.readAsDataURL(fileInput.files[0])
+											}
+										}
+									</script>
+									<img id="img-product" alt=""
+										th:src="@{${product.img!=null? '/assets/img/uploads/'+product.img : '/assets/img/uploads/tt.jpg'}}"
+										width="80%"> <input type="file"
+										onchange="chooseFile(this)" name="imgFile">
+										<h4 th:text="${product.img}"></h4>
+								</div>
+
+							</div>
+
+							<div class="box-btn">
+
+								<button class="btn btn-info">Save</button>
+
+								<a><button type="reset" class="btn btn-primary">Reset</button></a>
+
+							</div>
+						</form>
+					</div>
+
+					<div class="tab-pane fade" id="list-product" role="tabpanel"
+						aria-labelledby="profile-tab">
+						<table class="table tbl-cart">
+							<thead class="thead-light">
+								<tr>
+								<th scope="col">Product Id</th>
+									<th scope="col">Product Name</th>
+									<th scope="col">Quantity</th>
+									<th scope="col">Price</th>
+									<th scope="col">Facture</th>
+									<th scope="col">Thao tác</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item : ${products}">
+								<th scope="row" th:text="${item.productId}"></th>
+									<td scope="row" th:text="${item.name}"></td>
+									<td th:text="${item.quantity}"></td>
+									<td th:text="${item.price}"></td>
+									<td th:text="${item.facture}"></td>
+									<td><a class="edit"
+										th:href="@{'/admin/products/edit/'+${item.productId}}">Edit</a>
+										| <a th:href="@{'/admin/products/delete/'+${item.productId}}">Delete</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+</body>
+
+</html>

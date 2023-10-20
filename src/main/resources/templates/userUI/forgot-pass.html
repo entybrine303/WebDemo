@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+    <title>QUÊN MẬT KHẨU</title>
+<link rel="stylesheet" href="/assets/css/sharedForm.css">
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="container">
+      <div class="c-box card">
+          <div class="c-box-1 form-group">
+              <input type="text" class="c-text form-control" placeholder="Nhập Email"/>
+              <input type="text" class="c-text form-control" placeholder="Nhập mật khẩu"/>
+              
+            <button class="btn-retrieve btn btn-danger">Lấy lại mật khẩu</button>
+          </div>
+        </div>
+    </div>
+</section>
+  </body>
+</html>

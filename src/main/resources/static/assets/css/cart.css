@@ -1,0 +1,38 @@
+.body {
+    padding: 0 30px;
+  }
+
+
+.view-cart{
+    padding: 40px 0;
+}
+
+.tbl-cart{
+    margin: 20px 0;
+}
+
+.tbl-cart td{
+    vertical-align: initial;
+
+}
+
+.tbl-cart i{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tbl-cart i:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.box-total{
+    background-color: #E9ECEF;
+    text-align: right;
+    padding: 16px;
+}
+
+.box-total .total-price{
+    font-weight: bold;
+    color: red;
+}

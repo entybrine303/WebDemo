@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+<title>QUẢN LÝ NGƯỜI DÙNG</title>
+<link rel="stylesheet" href="/assets/css/management-product.css">
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<div class="body">
+			<div class="container box-main">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item"><a class="nav-link" id="home-tab"
+						data-toggle="tab" href="#management-product" role="tab"
+						aria-controls="management-product" aria-selected=""
+						>Management Account</a></li>
+					<li class="nav-item"><a class="nav-link" id="profile-tab"
+						data-toggle="tab" href="#list-product" role="tab"
+						aria-controls="list-product" aria-selected=""
+						>List Account</a></li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+
+					<div class="tab-pane fade show active" id="management-product"
+						role="tabpanel" aria-labelledby="home-tab">
+						<form action="/admin/accounts/saveOrUpdate" method="post"
+							th:object="${account}" class="card container form-management">
+							<div class="row">
+								<div class="box-l col-sm-7">
+
+									<label for="">Username:<input type="text"
+										class="form-control" name="username" th:field="*{username}">
+									</label> <br> <label for="">Password: <input
+										type="password" class="form-control" name="password" ></label>
+										<br> <label for="">Confirm Password: <input
+										type="password" class="form-control" name="confirmPassword">
+									</label>
+
+								</div>
+
+							</div>
+							<div class="box-btn">
+
+								<button class="btn btn-info">Save</button>
+
+								<a><button type="reset" class="btn btn-primary">Reset</button></a>
+
+							</div>
+						</form>
+					</div>
+
+					<div class="tab-pane fade" id="list-product" role="tabpanel"
+						aria-labelledby="profile-tab">
+						<table class="table tbl-cart">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col">Username</th>
+									<th scope="col">Password</th>
+									<th scope="col">Role</th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item : ${accounts}">
+									<td scope="row" th:text="${item.username}"></td>
+									<td th:text="${item.password}"></td>
+									<td th:text="${item.isAdmin} ? 'Admin' : 'User'"></td>
+									<td>
+									<a class="edit"
+										th:href="@{'/admin/accounts/edit/'+${item.username}}">Edit</a>
+										| <a th:href="@{'/admin/accounts/delete/'+${item.username}}">Delete</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+</body>
+
+</html>

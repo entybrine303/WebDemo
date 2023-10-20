@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+    <title>ĐĂNG NHẬP</title>
+<link rel="stylesheet" href="/assets/css/sharedForm.css">
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="container">
+      <div class="c-box card">
+          <form class="c-box-1 form-group" th:object="${account}"
+					action="/accounts/pLogin" method="post">
+					<h5 class="c-hello">Xin chào! Chúc bạn một ngày tốt lành</h5>
+					<input type="text" class="c-text form-control" 
+					name="username" th:field="*{username}" 
+					placeholder="Username" /> 
+						<input
+						type="password" name="password" th:field="*{password}"
+						class="c-text form-control" placeholder="Password" /> 
+						<label> Ghi nhớ
+						đăng nhập <input name="remember" 
+						value="false" type="checkbox" style="margin: 0">
+					</label>
+					<p class="c-quen-mk">
+						Quên mật khẩu?<a href="QuenMk.html"> Nhấn vào đây</a>
+					</p>
+
+					<button type="submit" class="btn-login btn btn-danger">Đăng nhập</button>
+					<p>
+						Nếu bạn chưa có tài khoản? <a th:href="@{/accounts/register}">Đăng kí ngay</a>
+					</p>
+				</form>
+        </div>
+    </div>
+</section>
+  </body>
+</html>

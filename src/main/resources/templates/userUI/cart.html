@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common.html}">
+<head>
+    <title>GIỎ HÀNG</title>
+<link rel="stylesheet" href="/assets/css/cart.css">
+</head>
+
+<body>
+  <section layout:fragment="content">
+  <div class="body">
+    <div class="view-cart container">
+      <h3>Giỏ hàng</h3>
+      <table class="table tbl-cart">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Đơn giá</th>
+            <th scope="col">Thao tác</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row"><img width="22%" src="/assets/img/sp1.webp" alt=""> Thông tin sản phẩm</td>
+            <td><i class="ti-minus"></i>  1  <i class="ti-plus"></i></td>
+            <td>6.000.000</td>
+            <td>
+              <a class="Update" href="#">Sửa</a>
+              <a class="Remove" href="#">Xoá</a>
+            </td>
+            <td><input type="checkbox" name="" id=""></td>
+          </tr> 
+        </tbody>
+      </table>
+      <div class="box-total">
+        <h6>Tổng tiền(? sản phẩm): <span class="total-price">6.000.000</span></h6>
+        <button class="btn btn-danger btn-buy">Đặt hàng</button>
+      </div>
+    </div>
+  </div>
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+.box-body{
+  background-color: #F9F9FB;
+  margin: 0 20px;
+}
+
+.box-detail{
+  background-color: #fff;
+  border-radius: 14px;
+}
+
+.box-detail-product{
+  padding: 20px;
+  margin: 10px;
+}
+
+
+.box-ctn-r {
+  padding: 14px;
+}
+
+.box-ctn-r .product-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.box-ctn-r .tragop {
+  background: #f28902;
+  color: #fff;
+  padding: 5px 6px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: text-top;
+  top: -5px;
+  font-weight: bold;
+}
+
+.box-ctn-r .product-price {
+  font-size: 20px;
+  color: red;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.box-ctn-r .giatragop {
+  font-size: 16px;
+  color: rgb(0, 81, 255);
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.box-ctn-r #quantity {
+  width: 80px;
+  display: inline-block;
+}
+
+.btn-detail {
+  margin: 5px 0;
+  padding: 14px 0;
+}
+
+.box-btn {
+  margin: 20px 0;
+}
+
+.btn-slide {
+  background-color: rgba(0, 0, 0, 0.118);
+  width: 8%;
+}
+
+
+.box-policy-product{
+  list-style: none;
+  padding: 20px;
+  margin: 20px;
+}
+
+.box-policy-product li{
+  border-bottom: 1px solid #f1f1f1;
+  background-color: white;
+  padding: 14px;
+}
+
+.box-policy-product span{
+  font-size: 12px;
+}
+
+
+
+.box-products{
+  justify-content: center;
+  margin: 0;
+}
+
+.box-product{
+
+  padding: 8px;
+}
+
+.box-product .product-name{
+  font-size: 18px;
+  color: black;
+}
+
+.box-product .product-price{
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.box-product .prepay{
+  color: blue;
+  font-size: 14px;
+}
+
+.box-product .product-hardware{
+  background-color: #E9E9E9;
+  border-radius: 10px;
+  padding: 10px 4px;
+  font-size: 12px;
+}
+
+.box-product .product-price,
+.box-product .prepay{
+  margin: 6px 0; 
+}
+
+.sale-title{
+  margin: 20px 30px 10px;
+}
+
+
+.box-product img{
+  height: auto; 
+  transition: transform 0.3s ease; 
+}
+
+.box-product:hover img{
+  transform: translateY(-10px);
+}
+
+.box-detail-system h3{
+  font-size: 20px;
+}
+
+.box-detail-system .tbl-detail-system{
+  font-size: 14px;
+}
+
+.box-product-lines{
+	margin-bottom: 30px;
+}
